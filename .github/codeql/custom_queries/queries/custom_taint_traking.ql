@@ -1,7 +1,7 @@
 /**
  * @id mcp-server-grinder/python
- * @name Some name
- * @description Some description
+ * @name Custom Taint Tracking
+ * @description Tracks taint from custom source to custom sink
  * @tags security
  * @kind path-problem
  * @severity error
