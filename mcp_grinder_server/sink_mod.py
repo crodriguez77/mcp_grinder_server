@@ -1,3 +1,3 @@
-def writeToExternalStorage(data):
+def customSink(data):
     with open("external_storage.txt", "w") as f:
         f.write(data)

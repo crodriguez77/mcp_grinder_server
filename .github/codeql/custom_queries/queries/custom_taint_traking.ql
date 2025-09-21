@@ -17,7 +17,7 @@ module CustomTaintTrackingConfiguration implements DataFlow::ConfigSig {
     predicate isSource(DataFlow::Node source) {
       source = API::moduleImport("mcp_grinder_server")
         .getMember("source_mod")
-        .getMember("getSensitiveData")
+        .getMember("customSource")
         .getACall()
     }
 
@@ -25,7 +25,7 @@ module CustomTaintTrackingConfiguration implements DataFlow::ConfigSig {
       exists(DataFlow::CallCfgNode call |
         call = API::moduleImport("mcp_grinder_server")
           .getMember("sink_mod")
-          .getMember("writeToExternalStorage")
+          .getMember("customSink")
           .getACall() and
         sink = call.getArg(0)
       )
@@ -38,4 +38,4 @@ import CustomTaintTrackingConfigurationFlow::PathGraph
 
 from CustomTaintTrackingConfigurationFlow::PathNode source, CustomTaintTrackingConfigurationFlow::PathNode sink
 where CustomTaintTrackingConfigurationFlow::flowPath(source, sink) 
-select sink.getNode(), source, sink, "This $@ is written to a log file.", source.getNode(), "potentially sensitive information"
+select sink.getNode(), source, sink, "This $@ was reached.", source.getNode(), "custom taint flow"
