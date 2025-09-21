@@ -39,6 +39,10 @@ jobs:
       with:
         languages: python
         build-mode: ${{ matrix.build-mode }}
+        config: |
+          queries: 
+            - uses: security-extended
+            - uses: .github/codeql/custom_queries/
         
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
