@@ -1,0 +1,4 @@
+name: mcp-grinder-server/codeql-extra-queries-python
+version: 0.0.1
+dependencies:
+  codeql/python-all: "*"
