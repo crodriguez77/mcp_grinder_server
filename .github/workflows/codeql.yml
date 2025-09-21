@@ -41,7 +41,6 @@ jobs:
         build-mode: ${{ matrix.build-mode }}
         config: |
           queries: |
-            .github/codeql/custom_queries/
             security-extended
         
     - name: Perform CodeQL Analysis
