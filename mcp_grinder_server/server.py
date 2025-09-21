@@ -1,6 +1,6 @@
 import os
-import pass_mod
-import source_mod
+from mcp_grinder_server import pass_mod
+from mcp_grinder_server import source_mod
 
 def main():
     print("Hello from mcp-grinder-server!")

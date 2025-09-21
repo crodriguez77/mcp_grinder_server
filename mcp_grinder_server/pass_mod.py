@@ -1,4 +1,4 @@
-import sink_mod
+from mcp_grinder_server import sink_mod
 
 def passThrough(p):
     passThrough1(p)
