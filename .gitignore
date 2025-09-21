@@ -9,3 +9,6 @@ wheels/
 
 # Virtual environments
 .venv
+.codeql
+*.sarif
+.github/codeql/mcp_grinder_server_db
