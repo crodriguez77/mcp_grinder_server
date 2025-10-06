@@ -1,12 +1,14 @@
 [project]
 name = "mcp-grinder-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP Grinder Server"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastmcp>=2.11.3",
     "pytest>=8.4.1",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.5.2"
 ]
 
 [project.scripts]
