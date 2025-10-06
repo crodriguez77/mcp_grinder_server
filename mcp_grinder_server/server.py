@@ -55,5 +55,8 @@ def main():
         logger.exception("Server error")
         return 1
 
+def sum(x, y):
+    return x + y;
+
 if __name__ == "__main__":
     main()
