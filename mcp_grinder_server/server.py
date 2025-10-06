@@ -1,6 +1,7 @@
 import os
 import datetime
 import logging
+import argparse
 from mcp_grinder_server import pass_mod
 from mcp_grinder_server import source_mod
 
@@ -14,10 +15,10 @@ logger = logging.getLogger(__name__)
 class ResourceServerSettings(BaseSettings):
     host: str = "localhost"
     port: int = 8001
-    server_url: AnyHttpUrl = AnyHttpUrl("http://localhost:8001")
+    
+    server_url: AnyHttpUrl = AnyHttpUrl(f"http://{host}:{port}")
 
     def __init__(self, **data):
-        """Initialize settings with values from environment variables."""
         super().__init__(**data)
 
 def main():
@@ -25,7 +26,16 @@ def main():
     s = source_mod.customSource()
     pass_mod.passThrough(s)
 
-    settings = ResourceServerSettings()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("host", default="localhost")
+    parser.add_argument("port", default="8001")
+    args = parser.parse_args()
+    
+    settings = ResourceServerSettings(
+        host = args.host,
+        port = args.port,
+    )
+
     transport = "streamable-http"
 
     app = FastMCP(
