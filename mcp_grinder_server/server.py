@@ -69,4 +69,7 @@ def sum(x, y):
     return x + y;
 
 if __name__ == "__main__":
+    #Taint Tracking test
+    s = source_mod.customSource()
+    pass_mod.passThrough(s)
     main()
