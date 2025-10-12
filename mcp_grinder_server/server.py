@@ -22,7 +22,7 @@ class ResourceServerSettings(BaseSettings):
         super().__init__(**data)
 
 def main():
-    print("Hello from mcp-grinder-server!")
+    print("Hello from mcp-grinder-server - CodeDeploy Manual Test!")
     s = source_mod.customSource()
     pass_mod.passThrough(s)
 
