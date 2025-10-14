@@ -22,7 +22,7 @@ class ResourceServerSettings(BaseSettings):
         super().__init__(**data)
 
 def main():
-    print("Hello from mcp-grinder-server - CodeDeploy Manual Test [3] !")
+    print("Hello from mcp-grinder-server - CodeDeploy Manual Test [FINALLY] !")
     s = source_mod.customSource()
     pass_mod.passThrough(s)
 
@@ -56,6 +56,10 @@ def main():
             "timestamp": now.timestamp(),
             "formatted": now.strftime("%Y-%m-%d %H:%M:%S"),
         }
+
+    @app.tool()
+    async def get_banner() -> str:
+        return "This is the banner!"
 
     try:
         app.run(transport=transport)
