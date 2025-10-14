@@ -5,4 +5,4 @@ echo 'cd /home/ubuntu/repos/mcp_grinder_server' >> /home/ubuntu/repos/mcp_grinde
 cd /home/ubuntu/repos/mcp_grinder_server >> /home/ubuntu/repos/mcp_grinder_server/deploy.log
 
 echo 'uv sync' >> /home/ubuntu/repos/mcp_grinder_server/deploy.log
-uv sync >> /home/ubuntu/repos/mcp_grinder_server/deploy.log
+/home/ubuntu/.local/bin/uv sync >> /home/ubuntu/repos/mcp_grinder_server/deploy.log
