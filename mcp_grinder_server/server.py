@@ -15,14 +15,13 @@ logger = logging.getLogger(__name__)
 class ResourceServerSettings(BaseSettings):
     host: str = "localhost"
     port: int = 8001
-    
     server_url: AnyHttpUrl = AnyHttpUrl(f"http://{host}:{port}")
 
     def __init__(self, **data):
         super().__init__(**data)
 
 def main():
-    print("Hello from mcp-grinder-server - CodeDeploy Manual Test [FINALLY] !")
+    print("Hello from mcp-grinder-server!")
     s = source_mod.customSource()
     pass_mod.passThrough(s)
 
@@ -30,7 +29,7 @@ def main():
     parser.add_argument("host", default="localhost")
     parser.add_argument("port", default="8001")
     args = parser.parse_args()
-    
+
     settings = ResourceServerSettings(
         host = args.host,
         port = args.port,
@@ -59,7 +58,7 @@ def main():
 
     @app.tool()
     async def get_banner() -> str:
-        return "This is the banner!"
+        return "This is the banner from the full CodeDeploy test!"
 
     try:
         app.run(transport=transport)
